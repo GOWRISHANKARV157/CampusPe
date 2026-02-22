@@ -1,0 +1,16 @@
+number = int(input("Enter a number: "))
+
+if number <= 0:
+    print("Please enter a positive number")
+
+else:
+    print(f"\nMultiplication Table for {number}\n")
+
+    # Loop runs from 1 to 10
+    for i in range(1, 11):
+
+        # Multiply number with loop variable
+        result = number * i
+
+        # Display output
+        print(f"{number} x {i} = {result}")

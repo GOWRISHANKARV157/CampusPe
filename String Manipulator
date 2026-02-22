@@ -1,0 +1,7 @@
+text = input("Enter a string: ") #input for string
+
+print("\n--- STRING OPERATIONS ---")
+print("Uppercase :", text.upper()) # Convert to uppercase
+print("Lowercase :", text.lower()) # Convert to lowercase
+print("Length    :", len(text)) # Calculate length of string
+print("Reversed  :", text[::-1]) # Reverse the string using slicing

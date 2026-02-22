@@ -1,0 +1,20 @@
+num1 = float(input("Enter first number: ")) #input for first number
+num2 = float(input("Enter second number: ")) #input for second number
+operator = input("Enter operator (+, -, *, /): ") #input for operator
+
+if operator == "+": # Check if operator is addition
+    print("Result:", num1 + num2)
+
+elif operator == "-": # Check if operator is subtraction
+    print("Result:", num1 - num2)
+
+elif operator == "*": # Check if operator is multiplication
+    print("Result:", num1 * num2)
+
+elif operator == "/": # Check if operator is division
+    if num2 == 0: # Handle division by zero case
+        print("Cannot divide by zero.") # Print error message for division by zero
+    else:
+        print("Result:", num1 / num2)
+else:
+        print("Invalid operator") # Handle invalid operator case

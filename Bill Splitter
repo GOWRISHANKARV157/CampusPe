@@ -1,0 +1,9 @@
+total_bill = float(input("Enter total bill amount: ")) #input for total bill amount
+number_of_people = int(input("Enter number of people: ")) #input for number of people
+
+if number_of_people <= 0: # Check if number of people is less than or equal to zero
+    print("Number of people must be greater than zero.")
+else:
+    split_amount = total_bill / number_of_people # Calculate split amount by dividing total bill by number of people
+    print(f"Each person should pay:{split_amount:.2f}") # Print the split amount formatted to 2 decimal places
+ 

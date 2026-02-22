@@ -1,0 +1,15 @@
+rows = int(input("Enter number of rows: "))
+
+if rows <= 0:
+    print("Rows must be greater than zero.")
+
+else:
+    # Outer loop controls number of lines
+    for i in range(1, rows + 1):
+
+        # Inner loop prints numbers in each row
+        for j in range(1, i + 1):
+            print(j, end=" ")
+
+        # Move to next line after each row
+        print()

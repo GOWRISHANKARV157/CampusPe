@@ -1,0 +1,14 @@
+text = input("Enter a string: ")
+
+# Normalize string:
+# Convert to lowercase & remove spaces for fair comparison
+normalized_text = text.lower().replace(" ", "")
+
+# Reverse string using slicing
+reversed_text = normalized_text[::-1]
+
+# Compare original & reversed
+if normalized_text == reversed_text:
+    print("Palindrome ")
+else:
+    print("Not a Palindrome")

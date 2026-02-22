@@ -1,0 +1,6 @@
+number = int(input("Enter an integer: ")) 
+
+print("\n--- NUMBER SYSTEM CONVERSIONS ---")
+print("Binary      :", bin(number)) # Convert to binary
+print("Octal       :", oct(number)) # Convert to octal
+print("Hexadecimal :", hex(number)) # Convert to hexadecimal

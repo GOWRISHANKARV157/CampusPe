@@ -1,0 +1,17 @@
+import random  # Used to generate random number
+
+secret_number = random.randint(1, 100)  # Random number between 1–100
+
+while True:
+    guess = int(input("Guess the number (1-100): "))
+
+    # Compare user guess with secret number
+    if guess < secret_number:
+        print("Too low!") 
+
+    elif guess > secret_number:
+        print("Too high!")
+
+    else:
+        print("Correct guess!")
+        break  # Exit loop when guessed correctly

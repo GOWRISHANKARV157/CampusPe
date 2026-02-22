@@ -1,0 +1,46 @@
+balance = 10578.35  # Initial balance
+while True:  # Loop keeps ATM running
+
+    print("\n--- ATM MENU ---")
+    print("1. Check Balance")
+    print("2. Deposit")
+    print("3. Withdraw")
+    print("4. Exit")
+
+    choice = int(input("Enter your choice: "))
+
+    # Option 1 : Check Balance
+    if choice == 1:
+        print("Current Balance: Rs.", balance)
+
+    # Option 2 : Deposit
+    elif choice == 2:
+        deposit_amount = float(input("Enter deposit amount: "))
+
+        if deposit_amount <= 0: # Check if deposit amount is positive
+            print("Deposit must be positive.")
+        else:
+            balance += deposit_amount # Add deposit amount to balance
+            print("Updated Balance: Rs.", balance)
+
+    # Option 3 : Withdraw
+    elif choice == 3:
+        withdraw_amount = float(input("Enter withdrawal amount: "))
+
+        if withdraw_amount <= 0: # Check if withdrawal amount is positive
+            print("Withdrawal must be positive.")
+
+        elif withdraw_amount > balance: # Check if withdrawal amount exceeds balance
+            print("Insufficient balance.")
+
+        else:
+            balance -= withdraw_amount # Subtract withdrawal amount from balance
+            print("Updated Balance: Rs.", balance)
+
+    # Option 4 : Exit
+    elif choice == 4:  # Check if user wants to exit
+        print("Thank you for using ATM.")
+        break  # Exit loop
+
+    else:
+        print("Invalid choice")

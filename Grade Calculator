@@ -1,0 +1,24 @@
+marks = float(input("Enter your marks: "))
+
+# valid marks range check
+if marks < 0 or marks > 100:
+    print("Marks must be between 0 and 100")
+
+# Grade classification
+elif marks >= 90:
+    print("Grade: A") #A grade for marks 90 and above
+
+elif marks >= 75:
+    print("Grade: B") #B grade for marks 75 to 89
+
+elif marks >= 60:
+    print("Grade: C") #C grade for marks 60 to 79
+
+elif marks >= 45:
+    print("Grade: D") #D grade for marks 45 to 64
+
+elif marks >= 35:
+    print("Grade: E") #E grade for marks 35 to 49
+    
+else:
+    print("Grade: Fail") #Fail for marks below 35

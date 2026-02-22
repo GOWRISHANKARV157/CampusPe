@@ -1,0 +1,14 @@
+age = int(input("Enter your age: "))
+
+# Pricing based on age 
+if age < 0: # Check if age is negative
+    print("Age cannot be negative")
+
+elif age <= 12: # Check if age is 12 or less
+    print("Ticket Price: Rs.100 (Child)")
+
+elif age <= 60: # Check if age is between 13 and 60
+    print("Ticket Price: Rs.200 (Adult)")
+
+else: # For age greater than 60
+    print("Ticket Price: Rs.150 (Senior Citizen)")

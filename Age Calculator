@@ -1,0 +1,8 @@
+birth_year = int(input("Enter your birth year: ")) #input for birth year
+current_year = int(input("Enter current year: ")) #input for current year
+
+if birth_year > current_year: # Check if birth year is greater than current year
+    print("Birth year cannot be greater than current year.")
+else:
+    age = current_year - birth_year # Calculate age by subtracting birth year from current year
+    print("Your age is:", age)

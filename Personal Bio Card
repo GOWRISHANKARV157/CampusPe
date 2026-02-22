@@ -1,0 +1,9 @@
+name = input("Enter your name: ") #input for name
+age = int(input("Enter your age: ")) #input for age
+sex = input("Enter your sex (M/F): ")  #input for sex
+
+print("\n--- PERSONAL BIO CARD ---")
+# Print the personal bio card with structured output
+print(f"Name : {name}")
+print(f"Age  : {age}")
+print(f"Sex  : {sex}")

@@ -1,0 +1,18 @@
+text = input("Enter a text: ")
+
+# Basic metrics
+character_count = len(text)
+word_count = len(text.split())
+
+# Vowel counting logic
+vowels = "aeiouAEIOU"
+vowel_count = 0
+
+for char in text:
+    if char in vowels:
+        vowel_count += 1
+
+print("\n--- TEXT ANALYSIS ---")
+print("Characters :", character_count)
+print("Words      :", word_count)
+print("Vowels     :", vowel_count)
