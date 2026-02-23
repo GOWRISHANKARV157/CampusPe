@@ -27,8 +27,8 @@ Q19 – Text Analysis Functions
 Q20 – Number System Functions
 
 Special Instructions:
--All programs are written in Python.
--Each program should be run individually.
+- All programs are written in Python.
+- Each program should be run individually.
 
 Challenges Faced:
 - Implementing loop logic correctly
