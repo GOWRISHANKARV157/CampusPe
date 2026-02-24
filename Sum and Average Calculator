@@ -1,19 +1,18 @@
-count = int(input("How many numbers do you want to enter? "))
+try:
+    
+    numbers = [] # List to store user-entered numbers
 
-if count <= 0:
-    print("Count must be greater than zero.")
-else:
-    total_sum = 0 # Initialize sum to zero
+    count = int(input("How many numbers? ")) # Get the count of numbers to be entered
 
-    # Loop runs based on user-defined count
-    for i in range(1, count + 1):
-        number = float(input(f"Enter number {i}: "))
-        # Add each number to total sum
-        total_sum += number
-    else:       
-        # Runs only if loop completes successfully
-        average = total_sum / count
+    for i in range(count):
+         num = float(input(f"Enter number {i+1}: ")) # Convert input to float for decimal support
+         numbers.append(num) # Add the number to the list
 
-        print("\n--- RESULTS ---")
-        print("Sum     :", total_sum)
-        print("Average :", round(average, 2))
+    # Calculate and display results
+    print("Sum:", sum(numbers)) #display the sum of the numbers
+    print("Average:", sum(numbers) / len(numbers)) #display the average of the numbers
+    print("Max:", max(numbers)) #display the maximum number from the list
+    print("Min:", min(numbers)) #display the minimum number from the list
+    
+except ValueError:
+    print("Invalid input. Please enter numbers only")

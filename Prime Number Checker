@@ -1,18 +1,50 @@
-number = int(input("Enter a number: "))
+try:
+    number = int(input("Enter a number: "))
 
-if number <= 1:
-    print("Not a Prime Number")
+    # Edge cases 
+    if number < 0:
+        print(f"{number} is NOT a PRIME number")
+        print("Reason: Negative numbers cannot be prime.")
 
-else:
-    is_prime = True  # Assume number is prime until proven
+    elif number == 0:
+        print("0 is NOT a PRIME number")
+        print("Reason: Prime numbers start from 2.")
 
-    # Check divisibility from 2 to number-1
-    for i in range(2, number):
-        if number % i == 0:
-            is_prime = False  # Found a divisor, so it's not prime
-            break  # Exit loop
+    elif number == 1:
+        print("1 is NOT a PRIME number")
+        print("Reason: Prime numbers must have exactly two divisors.")
 
-    if is_prime:
-        print("Prime Number")
+    elif number == 2:
+        print("2 is a PRIME number")
+
     else:
-        print("Not a Prime Number")
+        is_prime = True
+
+        #Efficient check to sqrt(number)
+        for i in range(2, int(number ** 0.5) + 1):
+            if number % i == 0:
+                is_prime = False
+                break
+
+        if is_prime:
+            print(f"{number} is a PRIME number")
+        else:
+            print(f"{number} is NOT a PRIME number")
+
+    # Part 2 – Range Prime Numbers 
+    start = int(input("\nEnter start range: "))
+    end = int(input("Enter end range: "))
+
+    print("Prime numbers:", end=" ")
+
+    for num in range(start, end + 1):
+
+        if num > 1:
+            for i in range(2, int(num ** 0.5) + 1):
+                if num % i == 0:
+                    break
+            else:
+                print(num, end=", ")
+
+except ValueError:
+    print("Invalid input.")

@@ -1,14 +1,21 @@
-age = int(input("Enter your age: "))
+age = int(input("Enter age: "))
+day = input("Enter day: ").lower()
+tickets = int(input("Number of tickets: "))
 
-# Pricing based on age 
-if age < 0: # Check if age is negative
-    print("Age cannot be negative")
+if age < 3:
+    price = 0
+elif age <= 12:
+    price = 150
+elif age <= 59:
+    price = 300
+else:
+    price = 200
 
-elif age <= 12: # Check if age is 12 or less
-    print("Ticket Price: Rs.100 (Child)")
+total = price * tickets #total cost before discount
 
-elif age <= 60: # Check if age is between 13 and 60
-    print("Ticket Price: Rs.200 (Adult)")
+if day in ["friday", "saturday", "sunday"]: #weekend discount
+    discount = total * 0.2
+else: #weekday discount
+    discount = 0 
 
-else: # For age greater than 60
-    print("Ticket Price: Rs.150 (Senior Citizen)")
+print("Total:", total - discount)

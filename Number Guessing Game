@@ -1,17 +1,62 @@
-import random  # Used to generate random number
+import random
 
-secret_number = random.randint(1, 100)  # Random number between 1–100
+best_score = None  # Track best performance
 
-while True:
-    guess = int(input("Guess the number (1-100): "))
+try:
+    while True:
 
-    # Compare user guess with secret number
-    if guess < secret_number:
-        print("Too low!") 
+        secret_number = random.randint(1, 100)
+        attempts_left = 7
+        attempts_used = 0
 
-    elif guess > secret_number:
-        print("Too high!")
+        print("\n=== NUMBER GUESSING GAME ===")
+        print("Guess the number between 1 and 100")
 
-    else:
-        print("Correct guess!")
-        break  # Exit loop when guessed correctly
+        while attempts_left > 0:
+
+            guess = int(input("\nEnter your guess: "))
+            attempts_used += 1
+            attempts_left -= 1
+
+            # Correct Guess 
+            if guess == secret_number:
+                print("Congratulations! Correct Guess!")
+                print(f"You guessed it in {attempts_used} attempts.")
+
+                # Best Score Tracking
+                if best_score is None or attempts_used < best_score:
+                    best_score = attempts_used
+                    print("New Best Score!")
+
+                break
+
+            elif abs(guess - secret_number) <= 5:
+                print("Very close!")
+
+            # Too High / Too Low
+            elif guess < secret_number:
+                print("Too Low!")
+
+            else:
+                print("Too High!")
+
+            print(f"Attempts remaining: {attempts_left}")
+
+        else:
+            # Runs if loop ends WITHOUT break
+            print("\n Game Over!")
+            print(f"The number was: {secret_number}")
+
+        # Play Again Option
+        play_again = input("\nPlay again? (yes/no): ").lower()
+
+        if play_again != "yes":
+            print("Thanks for playing!")
+            break
+
+        # Display Best Score
+        if best_score:
+            print(f"Best Score so far: {best_score} attempts")
+
+except ValueError:
+    print("Invalid input. Please enter numbers only.")

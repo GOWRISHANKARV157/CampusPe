@@ -1,9 +1,18 @@
-name = input("Enter your name: ") #input for name
-age = int(input("Enter your age: ")) #input for age
-sex = input("Enter your sex (M/F): ")  #input for sex
+#initializing variables
+name = "Gowri Shankar V"
+age = 21
+course = "Gen AI"
+college = "DBIT, Bengaluru"
+email = "ismartshankar873@gmail.com"
 
-print("\n--- PERSONAL BIO CARD ---")
-# Print the personal bio card with structured output
-print(f"Name : {name}")
-print(f"Age  : {age}")
-print(f"Sex  : {sex}")
+print("╔════════════════════════════════════════════╗")
+print("║              STUDENT BIO CARD              ║")
+print("╠════════════════════════════════════════════╣")
+
+print(f"║ {'Name':<10} : {name:<30}║")
+print(f"║ {'Age':<10} : {str(age) + ' years':<30}║")
+print(f"║ {'Course':<10} : {course:<30}║")
+print(f"║ {'College':<10} : {college:<30}║")
+print(f"║ {'Email':<10} : {email:<30}║")
+
+print("╚════════════════════════════════════════════╝")

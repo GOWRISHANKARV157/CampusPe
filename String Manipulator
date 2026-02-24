@@ -1,7 +1,14 @@
-text = input("Enter a string: ") #input for string
+text = input("Enter a sentence: ")
 
-print("\n--- STRING OPERATIONS ---")
-print("Uppercase :", text.upper()) # Convert to uppercase
-print("Lowercase :", text.lower()) # Convert to lowercase
-print("Length    :", len(text)) # Calculate length of string
-print("Reversed  :", text[::-1]) # Reverse the string using slicing
+print("\nOriginal                 :", text) #prints the original input
+print("Characters (with spaces)   :", len(text)) #counts all characters including spaces
+print("Characters (without spaces):", len(text.replace(" ", ""))) #removes spaces and counts characters
+print("Words                      :", len(text.split())) #splits the string into a list of words
+print("UPPERCASE                  :", text.upper()) #convert to uppercase
+print("lowercase                  :", text.lower()) #convert to lowercase
+print("Title Case                 :", text.title()) #convert to title case
+
+words = text.split()
+print("First word                 :", words[0]) #prints the first word by accessing the first element of the list created by split()
+print("Last word                  :", words[-1]) #prints the last word by accessing the last element of the list created by split()
+print("Reversed                   :", text[::-1]) #reverses the string using slicing with a step of -1

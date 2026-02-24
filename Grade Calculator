@@ -1,24 +1,35 @@
-marks = float(input("Enter your marks: "))
+marks = []
 
-# valid marks range check
-if marks < 0 or marks > 100:
-    print("Marks must be between 0 and 100")
+try:
+    for i in range(1, 6): # Loop to get marks for 5 subjects
+        mark = float(input(f"Enter subject {i} marks: "))
+        marks.append(mark) # Append marks to the list
 
-# Grade classification
-elif marks >= 90:
-    print("Grade: A") #A grade for marks 90 and above
+    total = sum(marks) # Calculate total marks
+    percentage = total / 5 # Calculate percentage
 
-elif marks >= 75:
-    print("Grade: B") #B grade for marks 75 to 89
+    if all(mark >= 40 for mark in marks): # Check if all marks are 40 or above
+        result = "Pass"
+    else:
+        result = "Fail"
 
-elif marks >= 60:
-    print("Grade: C") #C grade for marks 60 to 79
+    if percentage >= 90:
+        grade = "A+"
+    elif percentage >= 80:
+        grade = "A"
+    elif percentage >= 70:
+        grade = "B"
+    elif percentage >= 60:
+        grade = "C"
+    elif percentage >= 50:
+        grade = "D"
+    else:
+        grade = "F"
 
-elif marks >= 45:
-    print("Grade: D") #D grade for marks 45 to 64
+    print("\nTotal:", total)
+    print("Percentage:", percentage)
+    print("Grade:", grade)
+    print("Result:", result)
 
-elif marks >= 35:
-    print("Grade: E") #E grade for marks 35 to 49
-    
-else:
-    print("Grade: Fail") #Fail for marks below 35
+except ValueError:
+    print("Invalid input.")

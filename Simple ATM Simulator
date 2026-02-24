@@ -1,46 +1,61 @@
-balance = 10578.35  # Initial balance
-while True:  # Loop keeps ATM running
+balance = 10000  # Initial balance
 
-    print("\n--- ATM MENU ---")
-    print("1. Check Balance")
-    print("2. Deposit")
-    print("3. Withdraw")
-    print("4. Exit")
+try:
+    while True:
 
-    choice = int(input("Enter your choice: "))
+        print("\nATM SIMULATOR")
+        print("1. Check Balance")
+        print("2. Deposit")
+        print("3. Withdraw")
+        print("4. Exit")
 
-    # Option 1 : Check Balance
-    if choice == 1:
-        print("Current Balance: Rs.", balance)
+        choice = int(input("Enter choice: "))
 
-    # Option 2 : Deposit
-    elif choice == 2:
-        deposit_amount = float(input("Enter deposit amount: "))
+        # Exit option
+        if choice == 4:
+            print("Thank you for using ATM.")
+            break
 
-        if deposit_amount <= 0: # Check if deposit amount is positive
-            print("Deposit must be positive.")
+        # Check Balance
+        elif choice == 1:
+            print(f"Current balance: Rs.{balance:.2f}")
+
+        # Deposit Money
+        elif choice == 2:
+            deposit_amount = float(input("Enter amount to deposit: "))
+
+            if deposit_amount <= 0:
+                print("Invalid deposit amount.")
+
+            else:
+                balance += deposit_amount
+                print("Deposit successful!")
+                print(f"New balance: Rs.{balance:.2f}")
+
+        # Withdraw Money
+        elif choice == 3:
+            withdraw_amount = float(input("Enter amount to withdraw: "))
+
+            if withdraw_amount <= 0:
+                print("Invalid withdrawal amount")
+
+            # Minimum balance rule
+            elif balance - withdraw_amount < 500:
+                print("Withdrawal denied!")
+                print("Minimum balance of ₹500 must be maintained")
+
+            # Sufficient balance check
+            elif withdraw_amount > balance:
+                print("Withdrawal denied!")
+                print("Insufficient balance")
+
+            else:
+                balance -= withdraw_amount
+                print("Withdrawal successful!")
+                print(f"New balance: Rs.{balance:.2f}")
+
         else:
-            balance += deposit_amount # Add deposit amount to balance
-            print("Updated Balance: Rs.", balance)
+            print("Invalid choice")
 
-    # Option 3 : Withdraw
-    elif choice == 3:
-        withdraw_amount = float(input("Enter withdrawal amount: "))
-
-        if withdraw_amount <= 0: # Check if withdrawal amount is positive
-            print("Withdrawal must be positive.")
-
-        elif withdraw_amount > balance: # Check if withdrawal amount exceeds balance
-            print("Insufficient balance.")
-
-        else:
-            balance -= withdraw_amount # Subtract withdrawal amount from balance
-            print("Updated Balance: Rs.", balance)
-
-    # Option 4 : Exit
-    elif choice == 4:  # Check if user wants to exit
-        print("Thank you for using ATM.")
-        break  # Exit loop
-
-    else:
-        print("Invalid choice")
+except ValueError:
+    print("Invalid input. Please enter numeric values.")

@@ -1,14 +1,21 @@
-text = input("Enter a string: ")
+try:
+    user_input = input("Enter word/number: ")
 
-# Normalize string:
-# Convert to lowercase & remove spaces for fair comparison
-normalized_text = text.lower().replace(" ", "")
+    # Normalize input for fair comparison
+    normalized_input = user_input.lower()
 
-# Reverse string using slicing
-reversed_text = normalized_text[::-1]
+    # Reverse input
+    reversed_input = normalized_input[::-1]
 
-# Compare original & reversed
-if normalized_text == reversed_text:
-    print("Palindrome ")
-else:
-    print("Not a Palindrome")
+    print("\n--- VERIFICATION ---")
+    print("Original :", user_input)
+    print("Reversed :", reversed_input)
+
+    # Compare normalized values
+    if normalized_input == reversed_input:
+        print("Result   : PALINDROME")
+    else:
+        print("Result   : NOT A PALINDROME")
+
+except Exception:
+    print("Unexpected error occurred.")

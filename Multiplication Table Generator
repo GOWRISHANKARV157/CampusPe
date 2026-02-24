@@ -1,16 +1,26 @@
-number = int(input("Enter a number: "))
+try:
+    number = int(input("Enter number: "))
+    range_end = int(input("Enter range: "))
 
-if number <= 0:
-    print("Please enter a positive number")
+    # Validate inputs
+    if range_end <= 0:
+        print("Range must be positive")
 
-else:
-    print(f"\nMultiplication Table for {number}\n")
+    else:
+        print(f"\nMultiplication Table of {number}")
 
-    # Loop runs from 1 to 10
-    for i in range(1, 11):
+        # Loop from 1 to range
+        for i in range(1, range_end + 1): 
+            result = number * i # Calculate multiplication result
+            print(f"{number} x {i} = {result}") # Display the result
+        
+        # Full multiplication table from 1 to 10
+        print("\n=== FULL MULTIPLICATION TABLE ===\n")
 
-        # Multiply number with loop variable
-        result = number * i
+        for i in range(1, 11):          # Rows
+             for j in range(1, 11):      # Columns
+                 print(f"{i*j:4}", end="")  # Width formatting for alignment
+             print()
 
-        # Display output
-        print(f"{number} x {i} = {result}")
+except ValueError:
+    print("Invalid input. Please enter numbers only")

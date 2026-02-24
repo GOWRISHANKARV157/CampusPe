@@ -1,16 +1,52 @@
-temperature = float(input("Enter temperature value: "))
-unit = input("Convert from (C/F): ").upper() #input for unit and convert to uppercase for consistency
+try:
+    while True:
 
-# Convert Celsius to Fahrenheit
-if unit == "C":
-    fahrenheit = (temperature * 9/5) + 32 # Calculate Fahrenheit using the formula (C * 9/5) + 32
-    print(f"Converted Temperature: {fahrenheit:.2f}°F")
+        print("\n=== TEMPERATURE CONVERTER ===")
+        print("1. Celsius to Fahrenheit")
+        print("2. Fahrenheit to Celsius")
+        print("3. Celsius to Kelvin")
+        print("4. Kelvin to Celsius")
+        print("5. Fahrenheit to Kelvin")
+        print("6. Kelvin to Fahrenheit")
+        print("7. Exit")
 
-# Convert Fahrenheit to Celsius
-elif unit == "F":
-    celsius = (temperature - 32) * 5/9 # Calculate Celsius using the formula (F - 32) * 5/9
-    print(f"Converted Temperature: {celsius:.2f}°C")
+        choice = int(input("Enter your choice: "))
 
-else:
-    # Handles invalid unit input
-    print("Invalid unit... Please enter C or F")
+        # Exit condition
+        if choice == 7:
+            print("Exiting Temperature Converter.")
+            break
+
+        # Take temperature input
+        temperature = float(input("Enter temperature value: "))
+
+        # Conversion Logic
+        if choice == 1: #Celsius to Fahrenheit
+            result = (temperature * 9/5) + 32
+            print(f"Result: {round(result, 2)} °F")
+
+        elif choice == 2: #Fahrenheit to Celsius
+            result = (temperature - 32) * 5/9
+            print(f"Result: {round(result, 2)} °C")
+
+        elif choice == 3: #Celsius to Kelvin
+            result = temperature + 273.15
+            print(f"Result: {round(result, 2)} K")
+
+        elif choice == 4: #Kelvin to Celsius
+            result = temperature - 273.15
+            print(f"Result: {round(result, 2)} °C")
+
+        elif choice == 5: #Fahrenheit to Kelvin
+            result = (temperature - 32) * 5/9 + 273.15
+            print(f"Result: {round(result, 2)} K")
+
+        elif choice == 6: #Kelvin to Fahrenheit
+            result = (temperature - 273.15) * 9/5 + 32
+            print(f"Result: {round(result, 2)} °F")
+
+        else: #Invalid choice
+            print("Invalid choice. Please select 1-7.")
+
+except ValueError:
+    print("Invalid input. Please enter numeric values.")
